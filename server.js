@@ -20,5 +20,11 @@ app.get("/", (req, res) => {
     res.send("Hello world");
 })
 
+// Require employee routes
+const employeeRoutes = require("./src/routes/routes")
+
+// Using as middleware
+app.use("/api/v1/employees", employeeRoutes)
+
 // listen for requests
 app.listen(port, () => console.log(`Server running on port ${port} 🔥`));
