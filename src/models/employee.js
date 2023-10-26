@@ -28,11 +28,11 @@ Employee.create = function (newEmp, result) {
 };
 
 Employee.findById = function (id, result) {
-  dbConnect.query("SELECT * employees where id = ?", id, function (err, res) {
+  dbConnect.query("SELECT * FROM employees where id = ?", id, function (err, res) {
     if (err) {
       console.log("error: ", err);
     } else {
-      result(null, res);
+      result(null, res[0]??null);
     }
   });
 };
